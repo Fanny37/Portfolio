@@ -71,11 +71,11 @@ class AppFixtures extends Fixture
             ->setGithubLink($faker->domainName())
             ->setWebsiteLink($faker->domainName())
             ->setCreatedAt($faker->dateTime())
-            ->setIllustration('https://zupimages.net/up/21/17/otsc.png');
+            ->setIllustration('https://zupimages.net/up/21/29/fjh3.png');
 
             for ($j = 0; $j < 5; $j++) {
                 $illustration = new Illustration();
-                $illustration->setImage('https://zupimages.net/up/21/17/otsc.png')
+                $illustration->setImage('https://zupimages.net/up/21/29/fjh3.png')
                 ->setProject($project);
                 $manager->persist($illustration);
 

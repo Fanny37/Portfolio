@@ -3,5 +3,7 @@
   "build/app.js": "/build/app.js",
   "build/runtime.js": "/build/runtime.js",
   "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js",
-  "build/images/home-pic.jpg": "/build/images/home-pic.b16bf5cd.jpg"
+  "build/images/marbre.jpg": "/build/images/marbre.50b3b807.jpg",
+  "build/images/marbre1.jpg": "/build/images/marbre1.d0711425.jpg",
+  "build/images/marbre3.jpg": "/build/images/marbre3.bee39f15.jpg"
 }

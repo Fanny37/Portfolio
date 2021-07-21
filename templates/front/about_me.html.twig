@@ -3,10 +3,55 @@
 {% block title %}A propos{% endblock %}
 
 {% block body %}
-
+<section class="container">
 <div class="container">
-    <h1>A propos</h1>
-
-    {{dump(timeline)}}
+    <h1>Qui suis-je ?</h1>
 </div>
+<section>
+    <div className='show__one'>
+        <div class="details-frame">
+            <div class='details'>
+              <div class='card__img'>
+                
+                  <img
+                    class='details__img'
+                    src="https://zupimages.net/up/21/29/k11p.jpeg"
+                    alt='Brewery'
+                  />
+              
+              </div>
+              <div class="infos">
+                <p class='details__subtitle'>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Laboriosam voluptas porro aspernatur soluta excepturi doloremque 
+                    nemo suscipit sunt voluptates non facere minus iusto cumque eveniet, 
+                    perferendis, saepe consequuntur eligendi dolorum. Lorem ipsum dolor, 
+                    sit amet consectetur adipisicing elit. Laboriosam voluptas porro aspernatur 
+                    soluta excepturi doloremque nemo suscipit sunt voluptates non facere minus 
+                    iusto cumque eveniet, perferendis, saepe consequuntur eligendi dolorum. 
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                </p>
+              </div>
+          </div>
+        </div>
+      </div>
+</section>
+    <div class="intro">
+        <div class="container-intro">
+            <h2>Mes expériences</h2>
+        </div>
+    </div>
+    <divdiv class="timeline">
+        <ul>
+        {% for onetimeline in timeline %}
+          <li>
+            <div>
+              <time>{{onetimeline.year}}</time>{{onetimeline.description}}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+    </div>
+</section>
+{# {{dump(timeline)}} #}
 {% endblock %}
