@@ -31,12 +31,12 @@ class AdminController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('0321 WorkShop Portfolio Symfony');
+            ->setTitle('Mon Portfolio');
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linktoRoute('Retour au site', 'fa fa-home', 'home');
         yield MenuItem::section('Menu');
         yield MenuItem::linkToCrud('Projets', '', Project::class);
         yield MenuItem::linkToCrud('A propos', '', AboutMe::class);
@@ -44,7 +44,7 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Technos', '', Techno::class);
         yield MenuItem::linkToCrud('Contact', '', Contact::class);
         yield MenuItem::linkToCrud('Users', '', User::class);
-        yield MenuItem::linktoRoute('Retour au site', 'fa fa-home', 'home');
+        yield MenuItem::linkToRoute('Déconnexion', 'fa fa-sign-out', 'app_logout'); 
 
     }
 }
