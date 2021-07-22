@@ -67,6 +67,7 @@ class FrontController extends AbstractController
     {
         return $this->render('front/about_me.html.twig', [
             'timeline' => $this->timelineRepository->findAll(),
+            'aboutMe' => $this->aboutMeRepository->findAll()[0],
         ]);
     }
 
@@ -90,6 +91,7 @@ class FrontController extends AbstractController
         return $this->render('front/contact.html.twig', [
             'contact' => $contact,
             'form' => $form->createView(),
+            'aboutMe' => $this->aboutMeRepository->findAll()[0],
         ]);
     }
 }

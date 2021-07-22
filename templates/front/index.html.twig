@@ -3,10 +3,12 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-
-<div class="container">
-    <h1>Accueil</h1>
-
-    {{dump(aboutMe)}}
-</div>
+    <div id="home">
+        <div class="container" id="home-container">
+            <div class="home">
+                <h1 class="home-title">{{aboutMe.title}}</h1>
+                <h2 class="home-subtitle">{{aboutMe.function}}</h2>
+            </div>
+        </div>
+    </div>
 {% endblock %}

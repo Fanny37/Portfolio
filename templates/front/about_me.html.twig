@@ -3,10 +3,57 @@
 {% block title %}A propos{% endblock %}
 
 {% block body %}
+<section class="container">
+    <div>
+        <div className='show__one'>
+            <div class="details-frame">
+                <div class='details'>
+                    <div class='card__img'>
+                        <img
+                        class='details__img'
+                        src="{{ asset('images/' ~ aboutMe.avatar) }}"
+                        alt='photo de Fanny'
+                        />
+                    </div>
+                    <div class="infos">
+                        <h1 id="infos-title">Qui suis-je ?</h1>
+                        <p class='details__subtitle'>
+                        {{aboutMe.description}}
+                        </p>
+                        <div id="cv-button">
+                        <button class="btn btn-primary" type="submit"><a href="#popup1">Voir mon CV</a></button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intro">
+        <div class="container-intro">
+            <h2>Mes expériences professionnelles</h2>
+        </div>
+    </div>
+    <divdiv class="timeline">
+        <ul>
+        {% for onetimeline in timeline %}
+            <li>
+                <div>
+                    <time>{{onetimeline.year}}</time>{{onetimeline.description}}
+                </div>
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+</section>
 
-<div class="container">
-    <h1>A propos</h1>
-
-    {{dump(timeline)}}
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<h2>Mon CV</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+      <img src="https://zupimages.net/up/21/29/3jiy.jpg" alt="cv fanny">
+		</div>
+	</div>
 </div>
+
 {% endblock %}
