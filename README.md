@@ -1,9 +1,3 @@
-# Welcome to Workshop Portfolio en Symfony 👋
+# Welcome to Fanny Lemaitre-Hermenier Portfolio 👋
 
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+Using php/Symfony 
