@@ -37,7 +37,7 @@ class AppFixtures extends Fixture
 
         $manager->persist($aboutMe);
 
-        //Timeline
+        /* //Timeline
         $year = 2017;
         for ($i = 0; $i < 5; $i++) {
             $timeline = new Timeline();
@@ -45,7 +45,7 @@ class AppFixtures extends Fixture
             ->setDescription($faker->paragraph(5));
 
             $manager->persist($timeline);
-        }
+        } */
     
         //Technos
         $technos = ['PHP', 'JavaScript', 'Symfony', 'React', 'Node', 'Bootstrap', 'WebPack Encore', 'Methode SCRUM'];
@@ -59,7 +59,7 @@ class AppFixtures extends Fixture
         }
 
         //Projects
-        for ($i = 0; $i < 5; $i++) {
+        /* for ($i = 0; $i < 5; $i++) {
             $project = new Project();
             $project->setTitle($faker->sentence())
             ->setSlug($this->slugger->generate($project->getTitle()))
@@ -83,7 +83,7 @@ class AppFixtures extends Fixture
             }
 
             $manager->persist($project);
-        }
+        } */
 
         $manager->flush();
     }

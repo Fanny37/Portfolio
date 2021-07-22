@@ -3,36 +3,51 @@
 {% block title %}Contactez-moi !{% endblock %}
 
 {% block body %}
-
-<div class="container">
-    <h1 class="text-center">Contact</h1>
-
-    {{form_start(form)}}
-    <div class="row mb-3">
-        <div class="col-lg-6">
-            {{form_label(form.firstname)}}
-            {{form_widget(form.firstname)}}
+    <div class="container contact-inputs">
+        <h1 id="contact-title">Contact & Coordonnées</h1>
+        {{form_start(form)}}
+        <div class="row mb-3">
+            <div class="col-lg-6">
+                {{form_label(form.firstname)}}
+                {{form_widget(form.firstname)}}
+            </div>
+            <div class="col-lg-6">
+                {{form_label(form.lastname)}}
+                {{form_widget(form.lastname)}}
+            </div>
         </div>
-        <div class="col-lg-6">
-            {{form_label(form.lastname)}}
-            {{form_widget(form.lastname)}}
+        <div class="row mb-3">
+            <div class="col-lg-12">
+                {{form_label(form.email)}}
+                {{form_widget(form.email)}}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-12">
+                {{form_label(form.message)}}
+                {{form_widget(form.message, {'attr' : {'rows' : 10}} ) }}
+            </div>
+        </div>
+        <div class="row mb-3" id="contact-button">
+            <button class="btn btn-primary" type="submit">Envoyer</button>
+        </div>
+        {{form_end(form)}}
+        <div className='show__one'>
+            <div class="details-frame-project">
+                <div class='details-contact'>
+                    <div class='card__img' id="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d19880.243516639544!2d-1.5640221969900123!3d47.21765583321325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1626943674396!5m2!1sfr!2sfr" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="infos-contact">
+                        <h2><i class="fa fa-fw fa-envelope-o"></i> {{aboutMe.email}}</h2>
+                        <h2><i class="fa fa-fw fa-map-marker"></i> 44100, Nantes </h2>
+                        <h2>
+                            <a href="https://www.linkedin.com/in/fanny-lemaitre-hermenier-78732aba/" id="linkedin" target="_blank"><img src="https://zupimages.net/up/21/11/0p2m.png" alt="logo linkedin"></a>
+                            <a href"https://github.com/Fanny37" target="_blank" id="github"><img src="https://zupimages.net/up/21/29/rn83.png" alt="logo github"></a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row mb-3">
-        <div class="col-lg-12">
-            {{form_label(form.email)}}
-            {{form_widget(form.email)}}
-        </div>
-    </div>
-    <div class="row mb-3">
-        <div class="col-lg-12">
-            {{form_label(form.message)}}
-            {{form_widget(form.message, {'attr' : {'rows' : 10}} ) }}
-        </div>
-    </div>
-    <div class="row mb-3">
-        <button class="btn btn-primary" type="submit">Envoyer</button>
-    </div>
-    {{form_end(form)}}
-</div>
 {% endblock %}

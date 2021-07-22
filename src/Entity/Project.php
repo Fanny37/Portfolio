@@ -6,9 +6,12 @@ use App\Repository\ProjectRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ProjectRepository::class)
+ * @Vich\Uploadable
  */
 class Project
 {
@@ -25,7 +28,7 @@ class Project
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $slug;
 
@@ -40,9 +43,21 @@ class Project
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $illustration;
+
+    /**
+     * @Vich\UploadableField(mapping="images", fileNameProperty="illustration")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -60,12 +75,13 @@ class Project
     private $createdAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Techno::class, inversedBy="projects")
+     * @ORM\ManyToMany(targetEntity=Techno::class, inversedBy="projects", cascade={"remove"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $technos;
 
     /**
-     * @ORM\OneToMany(targetEntity=Illustration::class, mappedBy="project")
+     * @ORM\OneToMany(targetEntity=Illustration::class, mappedBy="project", cascade={"remove"})
      */
     private $gallery;
 
@@ -136,6 +152,48 @@ class Project
     public function setIllustration(string $illustration): self
     {
         $this->illustration = $illustration;
+
+        return $this;
+    }
+
+    public function setImageFile(?File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * Get the value of updatedAt
+     *
+     * @return  \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set the value of updatedAt
+     *
+     * @param  \DateTime  $updatedAt
+     *
+     * @return  self
+     */
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

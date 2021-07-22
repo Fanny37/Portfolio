@@ -3,36 +3,36 @@
 {% block title %}Projets{% endblock %}
 
 {% block body %}
-
-<div class="container">
-    <h1>Mes projets</h1>
-    <section>
-        {% for project in projects %}
-        <div className='show__one'>
-            <div class="details-frame-project">
-                <div class='details-project'>
-                  <div class='card__img'>
-                      <img
-                        class='details__img'
-                        src="{{project.illustration}}"
-                        alt='photo du projet'
-                      />
-                  </div>
-                  <div class="infos-project">
-                        <h2>{{project.title}}</h2>
-                        <p class='details__subtitle'>
-                            {{project.description}}
-                        </p>
-                        <a href="">
-                            <img src="https://zupimages.net/up/21/29/rn83.png" alt="logo github" id="logo-github">
-                        </a>
-                  </div>
-              </div>
+    <div class="container">
+        <h1 id="project-title">Mes projets</h1>
+        <section>
+            {% for project in projects %}
+            <div>
+                <div class="details-frame-project">
+                    <div class='details-project'>
+                        <div class='card__img'>
+                            <img
+                                class='details__img'
+                                src="{{ asset('images/' ~ project.illustration) }}"
+                                alt='photo du projet'
+                            />
+                        </div>
+                        <div class="infos-project">
+                            <h2>
+                                {{project.title}}
+                                <span>{{project.createdAt|date('Y-m-d')}}</span>
+                            </h2>
+                            <p class='details__subtitle'>
+                                {{project.description}}
+                            </p>
+                            <a href="">
+                                <img src="https://zupimages.net/up/21/29/rn83.png" alt="logo github" id="logo-github">
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          {% endfor %}
-    </section>
-
-</div>
-{{dump(projects)}}
+            {% endfor %}
+        </section>
+    </div>
 {% endblock %}
